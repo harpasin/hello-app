@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello
     name: hello
-  namespace: opa-test
+  namespace: hello-app
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: quay.io/harpasin/do480-hello-nginx:v1.0
+        image: quay.io/harpasin/do480-hello-nginx:latest
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +29,7 @@ metadata:
     app: hello
     name: hello
   name: hello
+  namespace: hello-app
 spec:
   ports:
   - port: 8080
@@ -42,9 +43,10 @@ metadata:
   labels:
     app: hello
     name: hello
+  namespace: hello-app  
 spec:
   # Replace the entry with the value of your wildcard domain.
-  host: hello.apps.ocp4.example.com
+  host: hello.apps.ocp4-mng.example.com
   subdomain: ''
   to:
     kind: Service
