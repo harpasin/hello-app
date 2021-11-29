@@ -20,5 +20,5 @@ spec:
     spec:
       containers:
       - name: hello
-        image: quay.io/harpasin/do480-hello-nginx:latest
+        image: quay.io/harpasin/do480-hello-nginx:v1.0
 ---
